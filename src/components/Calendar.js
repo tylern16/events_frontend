@@ -10,23 +10,27 @@ import DeleteEventModal from './DeleteEventModal/DeleteEventModal'
 const Calendar = () => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-    const [events, setEvents] = useState([])
+    let [events, setEvents] = useState([])
     //for displaying current/last/next month
-    const [nav, setNav] = useState(0)
-    const [clicked, setClicked] = useState()
-    const [days, setDays] = useState([])
+    let [nav, setNav] = useState(0)
+    let [clicked, setClicked] = useState()
+    let [days, setDays] = useState([])
     //displays current month and year
-    const [dateDisplay, setDateDisplay] = useState('')
+    let [dateDisplay, setDateDisplay] = useState('')
 
     //helper funtion
     const eventForDate = date => events.find(e => e.date === date)
 
-    //run getevents on page load
-    useEffect(()=>{
+    const getEvents = () => {
         axios.get('https://thawing-lowlands-32028.herokuapp.com/events')
         .then((response)=>{
           setEvents(response.data)
         })
+    }
+
+    //run getevents on page load
+    useEffect(()=>{
+        getEvents()
     }, [])
 
 
@@ -98,22 +102,27 @@ const Calendar = () => {
     },[events, nav])
 
     const onSave = (newTitle) => {
+
         axios.post('https://thawing-lowlands-32028.herokuapp.com/events', {title: newTitle, date: clicked, eventImage: '', city: ''})
         .then((response)=>{
-            setEvents([...events, {title: newTitle, date: clicked, eventImage: '', city: ''}])
+            getEvents()
+            //setEvents([...events, {title: newTitle, date: clicked, eventImage: '', city: ''}])
         })
         setClicked(null)
+        
     }
 
 
     //TODO: delete from axios
     const onDelete = () => {
+        // console.log(clicked);
         let deletedEvent = events.find(e => e.date === clicked)
+        // console.log(deletedEvent)
 
         axios.delete('https://thawing-lowlands-32028.herokuapp.com/events/' + deletedEvent.id ).then((response) => {
             setEvents(events.filter(e => e.date !== clicked))
         }) 
-        setClicked(null)          
+        setClicked(null)
     }
 
 

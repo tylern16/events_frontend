@@ -1,8 +1,8 @@
+/* CALENDAR */
+
 body {
   display: flex;
-  margin-top: 50px;
   justify-content: center;
-  background-color: #FFFCFF;
 }
 button {
   margin-right: 2.5px;
@@ -31,6 +31,7 @@ button {
 }
 #container {
   width: 770px;
+  background-color: #FFFCFF;
 }
 #weekdays {
   width: 100%;
@@ -65,7 +66,7 @@ button {
 }
 
 .day + .currentDay {
-  background-color:#e8f4fa;
+  background-color: #a4d8fe;
 }
 .event {
   font-size: 10px;
@@ -123,4 +124,39 @@ button {
   height: 100vh;
   position: absolute;
   background-color: rgba(0,0,0,0.8);
+}
+
+/* HEADER */
+#pageHeader {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color:#247BA0;
+  padding: .5em .4em;
+  margin-bottom: .5em;
+  font-size: x-large;
+}
+i {
+  cursor: pointer;
+}
+/* NAVBAR */
+#navbar {
+  display: none;
+  position: absolute;
+  background-color: #2d373b;
+  color: #e8f4fa;
+  height: 100%;
+  width: 25%;
+  z-index: 2;
+}
+#navbar-container {
+  list-style: none;
+}
+li {
+  padding: 1em 0;
+}
+a {
+  color: #e8f4fa;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -6,6 +6,7 @@ import {Route, Routes, Link} from 'react-router-dom'
 import Calendar from './components/Calendar'
 import Header from './components/Header'
 import EventList from './components/EventList'
+import Nav from './components/Nav'
 
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
   return (
     <>
       <Header />
+
+      <Nav />
 
       <Routes>
         <Route path='/' element={<Calendar/>}/>
