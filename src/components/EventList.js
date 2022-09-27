@@ -45,6 +45,7 @@ const EventList = () => {
 
     useEffect(()=>{
         getEventsSorted()
+        document.getElementById('navbar').style.display = 'none'
     }, [])
 
     const onSortByDate = () => {

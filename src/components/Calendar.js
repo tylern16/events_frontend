@@ -125,6 +125,10 @@ const Calendar = () => {
         setClicked(null)
     }
 
+    useEffect(()=>{
+        document.getElementById('navbar').style.display = 'none'
+    },[])
+
 
     return (
         <>

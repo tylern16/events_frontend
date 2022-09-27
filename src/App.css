@@ -1,9 +1,10 @@
 /* CALENDAR */
+/* test */
 
-body {
+/* body {
   display: flex;
   justify-content: center;
-}
+} */
 button {
   margin-right: 2.5px;
   margin-left: 2.5px;
@@ -30,7 +31,8 @@ button {
   background-color:#92a1d1;
 }
 #container {
-  width: 770px;
+  width: calc(100% -1em);
+  margin: .5em;
   background-color: #FFFCFF;
 }
 #weekdays {
@@ -39,7 +41,7 @@ button {
   color: #247BA0;
 }
 #weekdays div {
-  width: 100px;
+  width: calc(100%/7 - 20px);
   padding: 10px;
 }
 #calendar {
@@ -49,7 +51,7 @@ button {
   flex-wrap: wrap;
 }
 .day {
-  width: 100px;
+  width: calc(100%/7 - 15px);
   padding: 10px;
   height: 100px;
   cursor: pointer;
@@ -133,7 +135,6 @@ button {
   color: white;
   background-color:#247BA0;
   padding: .5em .4em;
-  margin-bottom: .5em;
   font-size: x-large;
 }
 i {
@@ -166,7 +167,6 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 #list-container {
-  width: 770px;
   text-align: center;
 }
 #events-table {
