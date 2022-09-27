@@ -19,7 +19,7 @@ const Header = () => {
     return (
         <>
             <div id='pageHeader'>
-                <i onClick={showNav} class="fa-solid fa-bars"></i>
+                <i onClick={showNav} className="fa-solid fa-bars"></i>
                 <div>Event Manager</div>
             </div>
         </>

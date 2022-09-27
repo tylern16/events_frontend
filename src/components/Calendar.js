@@ -2,10 +2,10 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import '/Users/tylernenninger/Desktop/Projects/Java/EventMgmtProject/events_frontend/src/App.css'
 
-import CalendarHeader from './calendarHeader/CalendarHeader'
-import Day from './Day/Day'
-import AddEventModal from './AddEventModel/AddEventModal'
-import DeleteEventModal from './DeleteEventModal/DeleteEventModal'
+import CalendarHeader from './CalendarComponents/CalendarHeader'
+import Day from './CalendarComponents/Day'
+import AddEventModal from './CalendarComponents/AddEventModal'
+import DeleteEventModal from './CalendarComponents/DeleteEventModal'
 
 const Calendar = () => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']

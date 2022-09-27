@@ -9,15 +9,15 @@ const Nav = () => {
             <div id='navbar'>
                 <ul id='navbar-container'>
                     <li>
-                        <NavLink activeClassName='link home' to='/'>
-                            <i class="fa-regular fa-calendar"></i>
+                        <NavLink className='link home' to='/'>
+                            <i className="fa-regular fa-calendar"></i>
                             &nbsp; Home
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink activeClassName='link list' to='events'>
-                            <i class="fa-solid fa-list"></i>     
+                        <NavLink className='link list' to='events'>
+                            <i className="fa-solid fa-list"></i>     
                             &nbsp; Event List
                         </NavLink>
                     </li>
