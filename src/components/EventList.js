@@ -4,11 +4,15 @@ import axios from 'axios'
 // import _, {sortBy} from 'underscore'
 
 import ListHeader from './EventsListComponents/ListHeader'
+import DeleteListEventModal from './EventsListComponents/DeleteListEventModal'
 
 const EventList = () => {
     let [events, setEvents] = useState([])
     let [dateOrder, setDateOrder] = useState('desc')
     let [eventOrder, setEventOrder] = useState('desc')
+    let [clicked, setClicked] = useState()
+    let [showModal, setShowModal] = useState(false)
+    
 
     const sortByDate = () => {
         console.log('sort');
@@ -35,12 +39,13 @@ const EventList = () => {
         })
     }
 
-    const onDelete = (deletedEvent) =>{
-        //console.log(deletedEvent);
-        axios.delete('https://thawing-lowlands-32028.herokuapp.com/events/' + deletedEvent.id)
+    const onDelete = (deletedEventId) =>{
+        console.log(deletedEventId);
+        axios.delete('https://thawing-lowlands-32028.herokuapp.com/events/' + deletedEventId)
         .then((response)=>{
             getEventsSorted()
         })
+        setShowModal(false)
     }
 
     useEffect(()=>{
@@ -91,6 +96,16 @@ const EventList = () => {
         }
     }
 
+    const onShowModal = (deletedEventId) => {
+        setShowModal(true)
+        setClicked(deletedEventId)       
+    }
+
+    const onCloseModal = () =>{
+        setShowModal(false)
+        setClicked(null)
+    }
+
     return (
         <>
             <div id='list-container'>
@@ -121,7 +136,15 @@ const EventList = () => {
                                 <tr key={event.id}>
                                     <td>{event.date}</td>
                                     <td>{event.title}</td>
-                                    <td><button onClick={() => {onDelete(event)}}>Delete</button></td>
+                                    <td>
+                                        <button 
+                                            onClick={
+                                                ()=>{onShowModal(event.id)}
+                                            }>Delete
+                                        
+                                        
+                                        </button>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -129,8 +152,15 @@ const EventList = () => {
 
                 </table>
             </div>
+            {showModal ? 
+            <DeleteListEventModal clicked={clicked} onDelete={onDelete} onCloseModal={onCloseModal}/>
+                :
+            null
+            }
         </>
     )
 }
 
 export default EventList
+
+// () => {onDelete(event)}

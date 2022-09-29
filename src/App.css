@@ -1,10 +1,9 @@
 /* CALENDAR */
 /* test */
 
-/* body {
-  display: flex;
-  justify-content: center;
-} */
+#root, html, body {
+  height: 100%;
+}
 button {
   margin-right: 2.5px;
   margin-left: 2.5px;
@@ -85,6 +84,7 @@ button {
   box-shadow: none !important;
 }
 #newEventModal, #deleteEventModal {
+  text-align: center;
   z-index: 20;
   padding: 25px;
   background-color: #e8f4fa;
@@ -116,7 +116,7 @@ button {
   background-color: #92a1d1;
 }
 #eventText {
-  font-size: 14px;
+  font-size: 18px;
 }
 #modalBackDrop {
   top: 0px;
@@ -126,6 +126,9 @@ button {
   height: 100vh;
   position: absolute;
   background-color: rgba(0,0,0,0.8);
+}
+#edit-form {
+  padding-bottom: 1em;
 }
 
 /* HEADER */
@@ -140,13 +143,14 @@ button {
 i {
   cursor: pointer;
 }
+
 /* NAVBAR */
 #navbar {
   display: none;
   position: absolute;
   background-color: #2d373b;
   color: #e8f4fa;
-  height: 100%;
+  height: 660px;
   width: 25%;
   z-index: 2;
 }
@@ -199,3 +203,31 @@ a {
 #events-table tbody tr:last-of-type{
   border-bottom: 2px solid #247BA0;
 }
+
+#event-list-modal-button-container {
+  display: flex;
+  justify-content: space-around;
+  padding: .5em;
+}
+h3 {
+  text-align: center;
+}
+
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #bfc0c0;
+  background-color: #247BA0;
+  color: white;
+  padding: 1em;
+}
+#socials {
+  width: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: .5em;
+}
+

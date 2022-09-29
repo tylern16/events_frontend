@@ -10,6 +10,7 @@ const Nav = () => {
             //console.log('clicked outside');
             document.getElementById('navbar').style.display = 'none'
         } else {
+            document.getElementById('navbar').style.display = 'none'
             //console.log('clicked inside');
         }
     }
@@ -21,7 +22,7 @@ const Nav = () => {
 
     return (
         <>
-            <div id='navbar' ref={refOne}>
+            <nav id='navbar' ref={refOne}>
                 <ul id='navbar-container'>
                     <li>
                         <NavLink className='link home' to='/'>
@@ -36,12 +37,19 @@ const Nav = () => {
                             &nbsp; Event List
                         </NavLink>
                     </li>
+
+                    <li>
+                        <NavLink className='link add' to='add'>
+                            <i className="fa-regular fa-calendar-plus"></i>
+                            &nbsp; Add Event
+                        </NavLink>
+                    </li>
                 </ul>
                 
 
 
 
-            </div>
+            </nav>
         </>
     )
 }

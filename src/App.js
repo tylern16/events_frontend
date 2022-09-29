@@ -7,6 +7,7 @@ import Calendar from './components/Calendar'
 import Header from './components/Header'
 import EventList from './components/EventList'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -20,8 +21,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Calendar/>}/>
         <Route path='/events' element={<EventList />} />
-
+        <Route path='/add' element={<Calendar />} />
       </Routes> 
+
+      <Footer />
     </>
   )
 }

@@ -125,6 +125,18 @@ const Calendar = () => {
         setClicked(null)
     }
 
+    const onUpdate = (updatedTitle) => {
+        //console.log(updatedTitle)
+        let updatedEvent = events.find(e => e.date === clicked)
+        //console.log(updatedEvent.id);
+        axios.put('https://thawing-lowlands-32028.herokuapp.com/events/' + updatedEvent.id, {title: updatedTitle, date: clicked, eventImage: '', city: ''})
+        .then((response)=>{
+            //console.log(response);
+            setEvents(response.data)
+        })
+        //setClicked(null)
+    }
+
     useEffect(()=>{
         document.getElementById('navbar').style.display = 'none'
     },[])
@@ -174,7 +186,8 @@ const Calendar = () => {
                 <DeleteEventModal 
                     eventText={eventForDate(clicked).title}
                     onClose={()=> setClicked(null)}
-                    onDelete={onDelete}        
+                    onDelete={onDelete} 
+                    onUpdate={onUpdate}       
                 />
                     :
                 null
