@@ -14,6 +14,9 @@ const DeleteListEventModal = (props) => {
 
 
             </div>
+            
+            <div id="modalBackDrop"></div>
+
         </>
         
     )
