@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import '/Users/tylernenninger/Desktop/Projects/Java/EventMgmtProject/events_frontend/src/App.css'
+import '../App.css'
 
 import CalendarHeader from './CalendarComponents/CalendarHeader'
 import Day from './CalendarComponents/Day'
